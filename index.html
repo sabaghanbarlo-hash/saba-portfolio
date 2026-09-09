@@ -238,19 +238,32 @@ header.nav.scrolled{ background:rgba(var(--paper-rgb),0.94); border-bottom-color
 .work-preview{
   position:relative; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
   aspect-ratio:4/3; background:var(--paper-alt);
+  display:flex; align-items:center; justify-content:center; padding:clamp(20px,3vw,36px);
 }
-.work-preview img{ width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
-.work-preview:hover img{ transform:scale(1.035); }
-.work-preview .mockup-fallback{
-  position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding:28px;
+.concept-badge{
+  position:absolute; top:14px; left:14px; z-index:2;
+  font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
+  background:rgba(255,255,255,0.88); color:var(--ink-soft); padding:5px 11px; border-radius:20px; border:1px solid var(--line);
 }
-.work-preview .mockup-fallback .mf-top{ display:flex; gap:6px; }
-.work-preview .mockup-fallback .mf-top span{ width:7px; height:7px; border-radius:50%; background:rgba(0,0,0,0.18); }
-.work-preview .mockup-fallback .mf-word{
-  font-family:var(--serif); font-size:clamp(26px,3.6vw,40px); line-height:1.05;
+.work-phone{
+  position:relative; width:min(220px,58%); aspect-ratio:9/19.5; border-radius:22px; overflow:hidden;
+  border:6px solid var(--ink); background:var(--ink);
+  box-shadow:0 18px 40px -18px rgba(28,26,23,0.4);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1);
 }
-.work-preview .mockup-fallback .mf-note{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:0.05em; opacity:0.55; text-transform:uppercase;
+.work-preview:hover .work-phone{ transform:translateY(-4px); }
+.work-phone img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+.work-preview:hover .work-phone img{ transform:scale(1.03); }
+.work-phone .mockup-fallback{
+  position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding:16px 14px;
+}
+.work-phone .mockup-fallback .mf-top{ display:flex; gap:4px; }
+.work-phone .mockup-fallback .mf-top span{ width:5px; height:5px; border-radius:50%; background:rgba(0,0,0,0.18); }
+.work-phone .mockup-fallback .mf-word{
+  font-family:var(--serif); font-size:clamp(14px,2vw,17px); line-height:1.08;
+}
+.work-phone .mockup-fallback .mf-note{
+  font-family:var(--mono); font-size:8px; letter-spacing:0.04em; opacity:0.6; text-transform:uppercase; margin-top:6px; display:block;
 }
 .mf-morrow{ background:linear-gradient(160deg,#EFE1CE,#D8B98F); color:#3B2A18; }
 .mf-lumiere{ background:linear-gradient(160deg,#EDE6E6,#C9AFAE); color:#2A2020; }
@@ -489,11 +502,14 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
         <!-- PROJECT 01 -->
         <article class="work-card reveal">
           <a class="work-preview" href="https://sabaghanbarlo-hash.github.io/morrow-coffee/" target="_blank" rel="noopener" aria-label="View Morrow Coffee live website">
-            <img src="assets/images/morrow-coffee.webp" alt="Morrow Coffee website homepage preview" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="mockup-fallback mf-morrow" style="display:none;">
-              <div class="mf-top"><span></span><span></span><span></span></div>
-              <div><div class="mf-word">Morrow Coffee</div><div class="mf-note">Replace with morrow-coffee.webp</div></div>
+            <span class="concept-badge">Concept Project</span>
+            <div class="work-phone">
+              <img src="assets/images/morrow-coffee.webp" alt="Morrow Coffee website homepage preview" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="mockup-fallback mf-morrow" style="display:none;">
+                <div class="mf-top"><span></span><span></span><span></span></div>
+                <div><div class="mf-word">Morrow Coffee</div><span class="mf-note">Preview image</span></div>
+              </div>
             </div>
           </a>
           <div class="work-body">
@@ -515,11 +531,14 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
         <!-- PROJECT 02 -->
         <article class="work-card reveal">
           <a class="work-preview" href="https://sabaghanbarlo-hash.github.io/lumiere-studio/" target="_blank" rel="noopener" aria-label="View LUMIÈRE Studio live website">
-            <img src="assets/images/lumiere-studio.webp" alt="LUMIÈRE Studio website homepage preview" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="mockup-fallback mf-lumiere" style="display:none;">
-              <div class="mf-top"><span></span><span></span><span></span></div>
-              <div><div class="mf-word">LUMIÈRE Studio</div><div class="mf-note">Replace with lumiere-studio.webp</div></div>
+            <span class="concept-badge">Concept Project</span>
+            <div class="work-phone">
+              <img src="assets/images/lumiere-studio.webp" alt="LUMIÈRE Studio website homepage preview" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="mockup-fallback mf-lumiere" style="display:none;">
+                <div class="mf-top"><span></span><span></span><span></span></div>
+                <div><div class="mf-word">LUMIÈRE Studio</div><span class="mf-note">Preview image</span></div>
+              </div>
             </div>
           </a>
           <div class="work-body">
@@ -541,11 +560,14 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
         <!-- PROJECT 03 -->
         <article class="work-card reveal">
           <a class="work-preview" href="https://sabaghanbarlo-hash.github.io/aurelia-house/" target="_blank" rel="noopener" aria-label="View AURELIA House live website">
-            <img src="assets/images/aurelia-house.webp" alt="AURELIA House website homepage preview" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="mockup-fallback mf-aurelia" style="display:none;">
-              <div class="mf-top"><span></span><span></span><span></span></div>
-              <div><div class="mf-word">AURELIA House</div><div class="mf-note">Replace with aurelia-house.webp</div></div>
+            <span class="concept-badge">Concept Project</span>
+            <div class="work-phone">
+              <img src="assets/images/aurelia-house.webp" alt="AURELIA House website homepage preview" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="mockup-fallback mf-aurelia" style="display:none;">
+                <div class="mf-top"><span></span><span></span><span></span></div>
+                <div><div class="mf-word">AURELIA House</div><span class="mf-note">Preview image</span></div>
+              </div>
             </div>
           </a>
           <div class="work-body">
@@ -593,8 +615,8 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
         </div>
         <div class="service-item">
           <p class="si-num">04</p>
-          <h3>AI-Assisted Web Development</h3>
-          <p>I use modern AI-assisted workflows to build and iterate efficiently while keeping the final result tailored to the business.</p>
+          <h3>Landing Pages</h3>
+          <p>Focused, conversion-oriented pages built around a single product, service, or campaign goal.</p>
         </div>
       </div>
     </div>
@@ -714,10 +736,6 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
             <a class="direct-email" href="mailto:hello@example.com">hello@example.com</a>
           </div>
           <p style="color:var(--ink-soft); font-size:15px; max-width:280px;">Prefer email? Reach out directly and I'll get back to you within a couple of days.</p>
-          <div class="contact-social">
-            <a href="#" target="_blank" rel="noopener">Instagram</a>
-            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
         </div>
 
         <form class="inquiry reveal" id="inquiryForm" novalidate>
@@ -806,8 +824,6 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
           <span class="label">Connect</span>
           <ul>
             <li><a href="mailto:hello@example.com">Email</a></li>
-            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
       </div>
