@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saba — Freelance Web Designer | Modern Websites for Businesses</title>
-<meta name="description" content="Freelance web designer creating modern, responsive websites for small businesses, independent brands, and entrepreneurs.">
+<title>Saba — Web Design, AI Customer Support &amp; Social Media</title>
+<meta name="description" content="Freelance digital services for businesses including modern websites, AI-powered customer support, voice assistants, and social media management.">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Saba — Freelance Web Designer">
-<meta property="og:description" content="Modern websites for businesses that want to stand out. Freelance web design and development for small businesses, independent brands, and entrepreneurs.">
+<meta property="og:title" content="Saba — Web Design, AI Customer Support &amp; Social Media">
+<meta property="og:description" content="Websites, AI-powered customer experiences, and social media support for modern businesses.">
 <meta property="og:image" content="assets/images/og-cover.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Saba — Freelance Web Designer">
-<meta name="twitter:description" content="Modern websites for businesses that want to stand out.">
+<meta name="twitter:title" content="Saba — Web Design, AI Customer Support &amp; Social Media">
+<meta name="twitter:description" content="Websites, AI-powered customer experiences, and social media support for modern businesses.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -287,12 +287,16 @@ header.nav.scrolled{ background:rgba(var(--paper-rgb),0.94); border-bottom-color
 /* ===================================================================
    SERVICES
 =================================================================== */
-.services-grid{ display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
-.service-item{ border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:clamp(28px,4vw,44px); }
-.service-item .si-num{ font-family:var(--mono); font-size:12px; color:var(--accent); }
-.service-item h3{ font-size:clamp(20px,2.4vw,25px); margin-top:16px; font-weight:440; }
-.service-item p{ margin-top:12px; color:var(--ink-soft); font-size:15.5px; max-width:340px; }
-@media(max-width:700px){ .services-grid{ grid-template-columns:1fr; } }
+.service-cats{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.service-cat{ background:var(--paper); padding:clamp(28px,4vw,40px); display:flex; flex-direction:column; scroll-margin-top:100px; }
+.service-cat .sc-num{ font-family:var(--mono); font-size:12px; color:var(--accent); }
+.service-cat h3{ font-size:clamp(20px,2.2vw,24px); margin-top:14px; font-weight:440; }
+.service-cat .sc-desc{ margin-top:12px; color:var(--ink-soft); font-size:15px; }
+.sc-features{ list-style:none; margin:18px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; }
+.sc-features li{ font-size:13.5px; color:var(--ink-soft); padding-left:16px; position:relative; }
+.sc-features li::before{ content:"—"; position:absolute; left:0; color:var(--ink-faint); }
+.service-cat .btn{ margin-top:22px; align-self:flex-start; }
+@media(max-width:760px){ .service-cats{ grid-template-columns:1fr; } }
 
 /* ===================================================================
    PROCESS
@@ -418,6 +422,99 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
 @media(max-width:600px){
   .work-preview{ aspect-ratio:4/3.2; }
 }
+
+/* ===================================================================
+   DEMO CARD (shared: chat + voice)
+=================================================================== */
+.demo-card{
+  position:relative; background:var(--paper-alt); border:1px solid var(--line); border-radius:var(--radius);
+  max-width:520px; margin:0 auto; overflow:hidden;
+}
+.demo-badge{
+  position:absolute; top:14px; right:14px; z-index:2;
+  font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
+  background:var(--accent); color:var(--paper); padding:5px 11px; border-radius:20px;
+}
+.demo-note{ text-align:center; margin-top:18px; font-size:13px; color:var(--ink-faint); max-width:520px; margin-left:auto; margin-right:auto; }
+
+/* Chat demo */
+.chat-header{ display:flex; align-items:center; gap:12px; padding:18px 20px; border-bottom:1px solid var(--line); background:var(--paper); }
+.chat-avatar{ width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--paper); font-family:var(--serif); font-size:17px; display:flex; align-items:center; justify-content:center; flex:none; }
+.chat-name{ font-size:14.5px; font-weight:600; display:flex; align-items:center; gap:7px; }
+.chat-dot{ width:6px; height:6px; border-radius:50%; background:#4E7A51; display:inline-block; }
+.chat-sub{ font-size:12px; color:var(--ink-faint); margin-top:2px; }
+.chat-body{ padding:20px; display:flex; flex-direction:column; gap:10px; min-height:120px; }
+.chat-msg{ max-width:82%; padding:10px 14px; border-radius:14px; font-size:14px; line-height:1.45; opacity:0; transform:translateY(6px); animation:chatIn .35s ease forwards; }
+@keyframes chatIn{ to{ opacity:1; transform:translateY(0); } }
+.chat-ai{ background:var(--paper); border:1px solid var(--line); align-self:flex-start; border-bottom-left-radius:4px; }
+.chat-user{ background:var(--ink); color:var(--paper); align-self:flex-end; border-bottom-right-radius:4px; }
+.chat-suggestions{ display:flex; flex-wrap:wrap; gap:8px; padding:0 20px 20px; }
+.chat-suggestions button{
+  font-family:var(--sans); font-size:12.5px; padding:8px 13px; border-radius:20px; border:1px solid var(--line);
+  background:var(--paper); color:var(--ink-soft); transition:border-color .2s ease, color .2s ease;
+}
+.chat-suggestions button:hover, .chat-suggestions button:focus-visible{ border-color:var(--ink); color:var(--ink); }
+.chat-suggestions button:disabled{ opacity:0.4; cursor:default; }
+
+/* Voice demo */
+.voice-layout{ display:grid; grid-template-columns:1.3fr 0.9fr; gap:clamp(24px,4vw,40px); align-items:start; max-width:900px; margin:0 auto; }
+.voice-card{ max-width:none; }
+.voice-header{ display:flex; align-items:center; gap:12px; padding:18px 20px; border-bottom:1px solid var(--line); background:var(--paper); }
+.voice-pulse{ width:38px; height:38px; border-radius:50%; background:var(--accent-tint); position:relative; flex:none; }
+.voice-pulse::after{ content:""; position:absolute; inset:8px; border-radius:50%; background:var(--accent); }
+.voice-transcript{ padding:20px; display:flex; flex-direction:column; gap:12px; }
+.voice-line{ font-size:14px; line-height:1.5; }
+.voice-tag{ display:block; font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:3px; }
+.voice-customer{ color:var(--ink); }
+.voice-ai{ color:var(--ink-soft); padding-left:14px; border-left:2px solid var(--accent); }
+.voice-capabilities{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.voice-capabilities li{ font-size:14.5px; color:var(--ink-soft); padding-left:22px; position:relative; }
+.voice-capabilities li::before{ content:"✓"; position:absolute; left:0; color:var(--accent); }
+@media(max-width:820px){ .voice-layout{ grid-template-columns:1fr; } }
+
+/* Content calendar */
+.content-calendar{ max-width:820px; margin:0 auto; }
+.calendar-grid{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.calendar-day{ border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px; background:var(--paper-alt); }
+.cal-day{ font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); }
+.cal-type{ font-size:13px; color:var(--ink-faint); margin-top:10px; }
+.cal-title{ font-size:14.5px; margin-top:8px; font-style:italic; }
+@media(max-width:680px){ .calendar-grid{ grid-template-columns:1fr; } }
+
+.sm-services{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; max-width:980px; margin:clamp(36px,6vw,56px) auto 0; }
+.sm-item h3{ font-size:16px; font-weight:600; }
+.sm-item p{ margin-top:8px; font-size:13.5px; color:var(--ink-soft); }
+@media(max-width:820px){ .sm-services{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:480px){ .sm-services{ grid-template-columns:1fr; } }
+
+/* Industries */
+.industries-list{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:12px; }
+.industries-list li{
+  font-family:var(--mono); font-size:13px; padding:10px 18px; border:1px solid var(--line); border-radius:20px; color:var(--ink-soft);
+}
+
+/* Use cases */
+.usecase-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.usecase-card{ background:var(--paper); padding:clamp(24px,3.5vw,32px); }
+.usecase-card h3{ font-size:19px; font-weight:600; margin-top:12px; }
+.usecase-stack{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); margin-top:10px; }
+.usecase-example{ font-size:14.5px; color:var(--ink-soft); margin-top:12px; }
+.usecase-example em{ color:var(--ink); font-style:normal; font-weight:600; }
+@media(max-width:700px){ .usecase-grid{ grid-template-columns:1fr; } }
+
+/* Packages */
+.packages-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,3vw,24px); }
+.package-item{ border-top:2px solid var(--ink); padding-top:18px; }
+.package-item h3{ font-size:16.5px; font-weight:600; }
+.package-item p{ margin-top:8px; font-size:13.5px; color:var(--ink-soft); }
+@media(max-width:820px){ .packages-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:480px){ .packages-grid{ grid-template-columns:1fr; } }
+
+/* Tech */
+.tech-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.tech-label{ font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); }
+.tech-items{ font-size:13.5px; color:var(--ink-soft); margin-top:8px; }
+@media(max-width:760px){ .tech-grid{ grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
 <body>
@@ -472,11 +569,11 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
   <section class="hero" id="top">
     <div class="wrap hero-inner">
       <p class="eyebrow">Freelance Web Designer</p>
-      <h1>Websites that make your <span class="accent-word">business</span> look its best.</h1>
-      <p class="hero-sub">I design modern, responsive websites for businesses that want to look professional, stand out, and turn visitors into customers.</p>
+      <h1>Websites that <span class="accent-word">work harder</span> for your business.</h1>
+      <p class="hero-sub">I design modern websites, build AI-powered customer experiences, and help businesses stay connected with their audience.</p>
       <div class="hero-actions">
         <a href="#work" class="btn primary">View My Work</a>
-        <a href="#contact" class="btn">Start a Project</a>
+        <a href="#services" class="btn">Explore Services</a>
       </div>
       <div class="hero-avail"><span class="dot-live" aria-hidden="true"></span> Available for freelance projects</div>
     </div>
@@ -595,28 +692,258 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Services</p>
-        <h2>What I do.</h2>
+        <h2>How I can help</h2>
+        <p>From your website to the way customers reach you, I create practical digital solutions designed around your business.</p>
       </div>
-      <div class="services-grid reveal">
-        <div class="service-item">
-          <p class="si-num">01</p>
-          <h3>Website Design</h3>
-          <p>Custom website designs created around your brand, audience, and goals.</p>
+
+      <div class="service-cats reveal">
+
+        <div class="service-cat" id="web-design">
+          <p class="sc-num">01</p>
+          <h3>Web Design &amp; Development</h3>
+          <p class="sc-desc">Modern, responsive websites designed around your brand, your customers, and your business goals.</p>
+          <ul class="sc-features">
+            <li>Custom website design</li>
+            <li>Responsive development</li>
+            <li>Mobile optimization</li>
+            <li>Landing pages</li>
+            <li>Website redesigns</li>
+            <li>Basic SEO setup</li>
+            <li>Deployment assistance</li>
+          </ul>
+          <a class="btn" href="#work">Explore Web Design</a>
         </div>
-        <div class="service-item">
-          <p class="si-num">02</p>
-          <h3>Website Development</h3>
-          <p>Responsive, fast websites that work beautifully across desktop, tablet, and mobile.</p>
+
+        <div class="service-cat" id="ai-chat">
+          <p class="sc-num">02</p>
+          <h3>AI Customer Support</h3>
+          <p class="sc-desc">AI-powered chat experiences that answer common customer questions, capture leads, and help businesses respond around the clock.</p>
+          <ul class="sc-features">
+            <li>Website chat assistants</li>
+            <li>FAQ automation</li>
+            <li>Product/service questions</li>
+            <li>Lead capture</li>
+            <li>Appointment inquiry handling</li>
+            <li>Basic customer support</li>
+            <li>Escalation to a human when necessary</li>
+          </ul>
+          <a class="btn" href="#ai-chat-demo">Explore AI Support</a>
         </div>
-        <div class="service-item">
-          <p class="si-num">03</p>
-          <h3>Website Redesign</h3>
-          <p>Transform an outdated website into a modern digital experience.</p>
+
+        <div class="service-cat" id="ai-voice">
+          <p class="sc-num">03</p>
+          <h3>AI Voice Receptionist</h3>
+          <p class="sc-desc">AI-powered phone assistants that can answer common questions, collect information, and help businesses handle incoming calls.</p>
+          <ul class="sc-features">
+            <li>Answer incoming calls</li>
+            <li>Business hours &amp; location questions</li>
+            <li>Service &amp; pricing information</li>
+            <li>Appointment inquiries</li>
+            <li>Lead capture</li>
+            <li>Call routing</li>
+            <li>Human escalation</li>
+          </ul>
+          <a class="btn" href="#ai-voice-demo">Explore Voice AI</a>
         </div>
-        <div class="service-item">
-          <p class="si-num">04</p>
-          <h3>Landing Pages</h3>
-          <p>Focused, conversion-oriented pages built around a single product, service, or campaign goal.</p>
+
+        <div class="service-cat" id="social-media-cat">
+          <p class="sc-num">04</p>
+          <h3>Social Media Management</h3>
+          <p class="sc-desc">Consistent, on-brand social content across Instagram, TikTok, and Facebook, designed to keep your business visible and connected with its audience.</p>
+          <ul class="sc-features">
+            <li>Content planning &amp; calendars</li>
+            <li>Caption writing</li>
+            <li>Post design</li>
+            <li>Short-form video &amp; Reels concepts</li>
+            <li>Story ideas</li>
+            <li>Scheduling</li>
+            <li>Basic performance reporting</li>
+          </ul>
+          <a class="btn" href="#social-media">Explore Social Media</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI CHAT DEMO ============ -->
+  <section class="section" id="ai-chat-demo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">AI Customer Support · Interactive Demo</p>
+        <h2>See what an AI assistant could do for your business.</h2>
+        <p>A simulated chat for a fictional café — showing the kind of experience I can design and configure around your business.</p>
+      </div>
+
+      <div class="demo-card reveal">
+        <div class="demo-badge">AI Demo</div>
+        <div class="chat-header">
+          <div class="chat-avatar" aria-hidden="true">M</div>
+          <div>
+            <p class="chat-name">Maison Café <span class="chat-dot" aria-hidden="true"></span></p>
+            <p class="chat-sub">AI Assistant · usually replies instantly</p>
+          </div>
+        </div>
+        <div class="chat-body" id="chatBody">
+          <div class="chat-msg chat-ai">Hi! I'm the Maison Café assistant. Ask me anything — opening hours, the menu, reservations.</div>
+        </div>
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button type="button" data-q="hours">What time do you open?</button>
+          <button type="button" data-q="takeaway">Do you offer takeaway?</button>
+          <button type="button" data-q="location">Where are you located?</button>
+          <button type="button" data-q="booking">Can I book a table?</button>
+          <button type="button" data-q="menu">What's on the menu?</button>
+        </div>
+      </div>
+      <p class="demo-note reveal">This is a front-end demonstration with predefined responses — not a live system connected to a real business.</p>
+    </div>
+  </section>
+
+  <!-- ============ AI VOICE DEMO ============ -->
+  <section class="section" id="ai-voice-demo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">AI Voice Receptionist · Concept Demonstration</p>
+        <h2>Never miss a customer question.</h2>
+        <p>A concept demonstration of what an AI phone receptionist could sound like for your business.</p>
+      </div>
+
+      <div class="voice-layout reveal">
+        <div class="demo-card voice-card">
+          <div class="demo-badge">Concept Demo</div>
+          <div class="voice-header">
+            <div class="voice-pulse" aria-hidden="true"></div>
+            <div>
+              <p class="chat-name">Incoming Call — Maison Café</p>
+              <p class="chat-sub">AI Receptionist</p>
+            </div>
+          </div>
+          <div class="voice-transcript">
+            <div class="voice-line voice-customer"><span class="voice-tag">Customer</span>Hi, are you open on Sundays?</div>
+            <div class="voice-line voice-ai"><span class="voice-tag">AI</span>Yes, we're open from 9 AM to 6 PM on Sundays.</div>
+            <div class="voice-line voice-customer"><span class="voice-tag">Customer</span>Can I make a reservation?</div>
+            <div class="voice-line voice-ai"><span class="voice-tag">AI</span>Absolutely. I can help collect your preferred date and time.</div>
+          </div>
+        </div>
+
+        <ul class="voice-capabilities">
+          <li>Answers common questions</li>
+          <li>Captures leads</li>
+          <li>Handles basic inquiries</li>
+          <li>Can route calls</li>
+          <li>Available outside normal business hours</li>
+        </ul>
+      </div>
+      <p class="demo-note reveal">This is a concept demonstration, not a live phone line — implemented with a voice/AI platform per project.</p>
+      <div class="reveal" style="margin-top:8px;">
+        <a class="btn primary" href="#contact">Ask about Voice AI</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL MEDIA ============ -->
+  <section class="section" id="social-media">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Social Media Management</p>
+        <h2>Keep your brand active.</h2>
+        <p>Consistent, on-brand content across Instagram, TikTok, and Facebook — planned, created, and scheduled around your business.</p>
+      </div>
+
+      <div class="content-calendar reveal">
+        <span class="demo-badge" style="position:static; margin-bottom:16px; display:inline-block;">Sample Content</span>
+        <div class="calendar-grid">
+          <div class="calendar-day">
+            <p class="cal-day">Monday</p>
+            <p class="cal-type">Instagram Reel</p>
+            <p class="cal-title">"3 things to know before your first appointment"</p>
+          </div>
+          <div class="calendar-day">
+            <p class="cal-day">Wednesday</p>
+            <p class="cal-type">Carousel</p>
+            <p class="cal-title">"5 reasons clients choose us"</p>
+          </div>
+          <div class="calendar-day">
+            <p class="cal-day">Friday</p>
+            <p class="cal-type">Behind the Scenes</p>
+            <p class="cal-title">"Inside the studio"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sm-services reveal">
+        <div class="sm-item">
+          <h3>Content Strategy</h3>
+          <p>Plan what to post, when to post, and why.</p>
+        </div>
+        <div class="sm-item">
+          <h3>Content Creation</h3>
+          <p>Captions, graphics, short-form video concepts, and story ideas aligned with your brand.</p>
+        </div>
+        <div class="sm-item">
+          <h3>Scheduling</h3>
+          <p>Keep your content consistent with an organized publishing schedule.</p>
+        </div>
+        <div class="sm-item">
+          <h3>Analytics</h3>
+          <p>Review basic performance metrics and use them to improve future content.</p>
+        </div>
+      </div>
+      <p class="demo-note reveal">Sample content shown above is a concept, not a real client's account. Results aren't guaranteed.</p>
+    </div>
+  </section>
+
+  <!-- ============ WHO THIS IS FOR ============ -->
+  <section class="section" id="industries">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Who This Is For</p>
+        <h2>Built for businesses that don't have time for everything.</h2>
+      </div>
+      <ul class="industries-list reveal">
+        <li>Cafés &amp; Restaurants</li>
+        <li>Beauty &amp; Wellness</li>
+        <li>Hotels &amp; Hospitality</li>
+        <li>Local Services</li>
+        <li>Retail</li>
+        <li>Personal Brands</li>
+        <li>Professional Services</li>
+      </ul>
+      <p class="demo-note reveal">Not an exclusive list — if your business isn't here, I'd still love to hear about it.</p>
+    </div>
+  </section>
+
+  <!-- ============ USE CASES ============ -->
+  <section class="section" id="use-cases">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Example Workflows</p>
+        <h2>What could this look like for your business?</h2>
+      </div>
+      <div class="usecase-grid reveal">
+        <div class="usecase-card">
+          <span class="demo-badge" style="position:static; display:inline-block;">Example Workflow</span>
+          <h3>Café</h3>
+          <p class="usecase-stack">Website + AI chat assistant + Instagram management</p>
+          <p class="usecase-example">Customer asks: <em>"Are you open today?"</em> The AI answers immediately.</p>
+        </div>
+        <div class="usecase-card">
+          <span class="demo-badge" style="position:static; display:inline-block;">Example Workflow</span>
+          <h3>Beauty Studio</h3>
+          <p class="usecase-stack">Website + AI booking assistant + Instagram content</p>
+          <p class="usecase-example">Customer asks: <em>"How much is balayage?"</em> The assistant gives the business's configured answer.</p>
+        </div>
+        <div class="usecase-card">
+          <span class="demo-badge" style="position:static; display:inline-block;">Example Workflow</span>
+          <h3>Hotel</h3>
+          <p class="usecase-stack">Website + AI guest assistant + voice receptionist</p>
+          <p class="usecase-example">Guest asks: <em>"What time is check-in?"</em> The AI responds instantly.</p>
+        </div>
+        <div class="usecase-card">
+          <span class="demo-badge" style="position:static; display:inline-block;">Example Workflow</span>
+          <h3>Local Service Business</h3>
+          <p class="usecase-stack">Website + AI phone assistant + lead capture</p>
+          <p class="usecase-example">Caller asks about availability. The AI collects name, phone, service needed, and preferred time for follow-up.</p>
         </div>
       </div>
     </div>
@@ -632,24 +959,75 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
       <div class="process-list reveal">
         <div class="process-item">
           <span class="process-num">01</span>
-          <div class="process-body"><h3>Discover</h3><p>We talk about your business, audience, goals, and what you want the website to achieve.</p></div>
+          <div class="process-body"><h3>Discover</h3><p>Understand the business, audience, goals, existing systems, and common customer questions.</p></div>
         </div>
         <div class="process-item">
           <span class="process-num">02</span>
-          <div class="process-body"><h3>Plan</h3><p>I define the structure, content, visual direction, and key user journeys.</p></div>
+          <div class="process-body"><h3>Plan</h3><p>Define the website, AI workflow, social strategy, or combination of services required.</p></div>
         </div>
         <div class="process-item">
           <span class="process-num">03</span>
-          <div class="process-body"><h3>Design</h3><p>I create the visual experience around your brand and audience.</p></div>
+          <div class="process-body"><h3>Build</h3><p>Design and implement the website and/or digital systems.</p></div>
         </div>
         <div class="process-item">
           <span class="process-num">04</span>
-          <div class="process-body"><h3>Build</h3><p>I turn the design into a responsive, functional website.</p></div>
+          <div class="process-body"><h3>Test</h3><p>Test the user experience, AI responses, forms, and mobile experience.</p></div>
         </div>
         <div class="process-item">
           <span class="process-num">05</span>
-          <div class="process-body"><h3>Launch</h3><p>After revisions and final checks, your website is ready to go live.</p></div>
+          <div class="process-body"><h3>Launch</h3><p>Deploy the solution and provide the necessary handoff.</p></div>
         </div>
+        <div class="process-item">
+          <span class="process-num">06</span>
+          <div class="process-body"><h3>Optimize</h3><p>Where applicable, review performance and improve the system over time.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PACKAGES ============ -->
+  <section class="section" id="packages">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How Services Combine</p>
+        <h2>Every project is tailored to the business.</h2>
+      </div>
+      <div class="packages-grid reveal">
+        <div class="package-item">
+          <h3>Website</h3>
+          <p>Website design and development.</p>
+        </div>
+        <div class="package-item">
+          <h3>Website + AI</h3>
+          <p>Website plus customer-support automation.</p>
+        </div>
+        <div class="package-item">
+          <h3>Digital Presence</h3>
+          <p>Website + social media management.</p>
+        </div>
+        <div class="package-item">
+          <h3>Full Digital Support</h3>
+          <p>Website + AI customer communication + social media management.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:8px;">
+        <a class="btn primary" href="#contact">Let's discuss your project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECH ============ -->
+  <section class="section" id="tech">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin-bottom:24px;">
+        <p class="eyebrow">Built With Modern Tools</p>
+        <h2 style="font-size:clamp(26px,3.4vw,36px);">Built with modern tools.</h2>
+      </div>
+      <div class="tech-grid reveal">
+        <div class="tech-col"><p class="tech-label">Web</p><p class="tech-items">HTML · CSS · JavaScript · React</p></div>
+        <div class="tech-col"><p class="tech-label">AI</p><p class="tech-items">AI assistants · conversational systems · automation</p></div>
+        <div class="tech-col"><p class="tech-label">Content</p><p class="tech-items">Content planning · design · short-form video</p></div>
+        <div class="tech-col"><p class="tech-label">Deployment</p><p class="tech-items">GitHub · modern hosting platforms</p></div>
       </div>
     </div>
   </section>
@@ -712,12 +1090,12 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Start a Project</p>
-        <h2>Have a project in mind?</h2>
-        <p>Let's create a website that gives your business the digital presence it deserves.</p>
+        <h2>Let's build something useful.</h2>
+        <p>Whether you need a new website, a smarter way to handle customer questions, or help keeping your social presence active, tell me what you're working on.</p>
       </div>
       <div class="final-actions reveal">
         <a href="#contact" class="btn primary">Start a Project</a>
-        <a href="#work" class="btn">View My Work</a>
+        <a href="#services" class="btn">Explore Services</a>
       </div>
     </div>
   </section>
@@ -761,10 +1139,14 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
               <label for="f-need">What do you need? <span class="opt">(optional)</span></label>
               <select id="f-need" name="need">
                 <option value="">Select one</option>
-                <option>New website design</option>
-                <option>Website redesign</option>
-                <option>Website development</option>
-                <option>Not sure yet</option>
+                <option>Website</option>
+                <option>Website Redesign</option>
+                <option>Landing Page</option>
+                <option>AI Chat Assistant</option>
+                <option>AI Voice Receptionist</option>
+                <option>Social Media Management</option>
+                <option>Combination</option>
+                <option>Not Sure Yet</option>
               </select>
             </div>
           </div>
@@ -807,7 +1189,7 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
       <div class="footer-brand">
         <p class="logo">SABA</p>
         <p style="font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); margin-top:8px;">Freelance Web Designer</p>
-        <p class="ftag">Modern websites for businesses that want to stand out.</p>
+        <p class="ftag">Websites, AI-powered customer experiences, and social media support for modern businesses.</p>
       </div>
       <div class="footer-nav">
         <div class="footer-col">
@@ -963,6 +1345,36 @@ footer{ border-top:1px solid var(--line); padding:56px 0 34px; }
     form.reset();
   });
 
+
+  /* ---------- AI CHAT DEMO ---------- */
+  var chatBody = document.getElementById('chatBody');
+  var chatSuggestions = document.getElementById('chatSuggestions');
+  var chatAnswers = {
+    hours: "We're open daily from 8 AM to 6 PM.",
+    takeaway: "Yes! Takeaway is available for our full menu.",
+    location: "We're on Willow Street, in the heart of London.",
+    booking: "I can help with that — just share your preferred date, time, and party size.",
+    menu: "We serve specialty coffee, pastries, and a small seasonal food menu."
+  };
+  if(chatSuggestions){
+    chatSuggestions.addEventListener('click', function(e){
+      var btn = e.target.closest('button[data-q]');
+      if(!btn || btn.disabled) return;
+      var q = btn.getAttribute('data-q');
+      var userMsg = document.createElement('div');
+      userMsg.className = 'chat-msg chat-user';
+      userMsg.textContent = btn.textContent;
+      chatBody.appendChild(userMsg);
+      btn.disabled = true;
+      setTimeout(function(){
+        var aiMsg = document.createElement('div');
+        aiMsg.className = 'chat-msg chat-ai';
+        aiMsg.textContent = chatAnswers[q] || "Thanks for asking — let me get you an answer.";
+        chatBody.appendChild(aiMsg);
+        aiMsg.scrollIntoView({ behavior:'smooth', block:'nearest' });
+      }, 450);
+    });
+  }
 })();
 </script>
 
